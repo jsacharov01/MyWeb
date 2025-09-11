@@ -1,5 +1,5 @@
 // 📁 src/pages/HomePage.tsx
-import React, { useState, useEffect, FC } from "react";
+import React, { FC } from "react";
 import { motion } from "framer-motion";
 import { Button } from "../components/ui/button";
 import Navbar from "../components/Navbar";
@@ -22,20 +22,12 @@ interface HomePageProps {
 }
 
 const HomePage: FC<HomePageProps> = ({ services, projects }) => {
-  const [darkMode, setDarkMode] = useState<boolean>(false);
 
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [darkMode]);
 
   return (
   <div className="min-h-screen bg-slate-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
       <div className="container mx-auto max-w-6xl">
-        <Navbar darkMode={darkMode} toggleDarkMode={() => setDarkMode(!darkMode)} />
+  <Navbar />
 
         {/* Hero Section */}
   <section className="flex flex-col md:flex-row items-center justify-between px-8 py-16 bg-gradient-to-r from-sky-50 to-teal-50 text-gray-900 dark:bg-gray-800 dark:text-gray-100">
