@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+  /* Lighter default background + readable text in light mode */
+  background-color: #f8fafc; /* slate-50 */
+  color: #111827; /* gray-900 */
+}
+
+/* Tmavý režim */
+html.dark,
+html.dark body {
+  background-color: #111827; /* gray-900 */
+  color: #f9fafb; /* gray-50 */
+}
+
+/* Vlastní styly */
+button {
+  cursor: pointer;
+}
+
+/* Odkazy */
+a {
+  text-decoration: none;
+  color: inherit; /* keep links harmonized by default */
+}
