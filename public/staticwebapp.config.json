@@ -6,6 +6,8 @@
   "navigationFallback": {
     "rewrite": "/404.html",
     "exclude": [
+  "/s/preview-8b3c9e/assets/*",
+  "/s/preview-8b3c9e/favicon.png",
       "/assets/*",
       "/favicon.png",
       "/robots.txt",
@@ -23,11 +25,13 @@
       "route": "/index.html",
       "statusCode": 404
     },
+    { "route": "/s/preview-8b3c9e/assets/*" },
+    { "route": "/assets/*" },
+    { "route": "/s/preview-8b3c9e/favicon.png" },
     {
       "route": "/s/preview-8b3c9e/*",
       "rewrite": "/index.html"
     },
-    { "route": "/assets/*" },
     { "route": "/favicon.png" },
     { "route": "/robots.txt" },
     { "route": "/security.txt" },
