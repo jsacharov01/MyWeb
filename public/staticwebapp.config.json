@@ -5,6 +5,14 @@
   },
   "routes": [
     {
+      "route": "/",
+      "statusCode": 404
+    },
+    {
+      "route": "/index.html",
+      "statusCode": 404
+    },
+    {
       "route": "/s/preview-8b3c9e/*",
       "rewrite": "/index.html"
     },
