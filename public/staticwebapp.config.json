@@ -3,6 +3,17 @@
   "globalHeaders": {
     "X-Robots-Tag": "noindex, nofollow, noarchive"
   },
+  "navigationFallback": {
+    "rewrite": "/404.html",
+    "exclude": [
+      "/assets/*",
+      "/favicon.png",
+      "/robots.txt",
+      "/security.txt",
+      "/api/*",
+      "/s/preview-8b3c9e/*"
+    ]
+  },
   "routes": [
     {
       "route": "/",
