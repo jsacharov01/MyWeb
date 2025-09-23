@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json.schemastore.org/staticwebapp.config.json",
+  "globalHeaders": {
+    "X-Robots-Tag": "noindex, nofollow, noarchive"
+  },
+  "routes": [
+    {
+      "route": "/s/preview-8b3c9e/*",
+      "rewrite": "/index.html"
+    },
+    { "route": "/assets/*" },
+    { "route": "/favicon.png" },
+    { "route": "/robots.txt" },
+    { "route": "/security.txt" },
+    { "route": "/api/*" },
+    {
+      "route": "/*",
+      "statusCode": 404
+    }
+  ]
+}
