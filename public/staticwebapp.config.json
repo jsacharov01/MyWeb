@@ -8,7 +8,6 @@
     "exclude": [
   "/s/preview-8b3c9e/assets/*",
   "/s/preview-8b3c9e/favicon.png",
-      "/assets/*",
       "/favicon.png",
       "/robots.txt",
       "/security.txt",
@@ -25,7 +24,7 @@
       "route": "/index.html",
       "statusCode": 404
     },
-  { "route": "/assets/*" },
+  { "route": "/assets/*", "statusCode": 404 },
   { "route": "/s/preview-8b3c9e/assets/*" },
     { "route": "/s/preview-8b3c9e/favicon.png" },
     {
