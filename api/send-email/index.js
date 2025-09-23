@@ -4,28 +4,34 @@ const acsConnectionString = process.env.ACS_CONNECTION_STRING;
 const emailSender = process.env.EMAIL_SENDER;
 const emailTo = process.env.EMAIL_TO;
 
-const corsHeaders = {
+const baseHeaders = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type"
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+  "X-Robots-Tag": "noindex, nofollow, noarchive"
 };
 
 module.exports = async function (context, req) {
   if (req.method === "OPTIONS") {
-    context.res = { status: 204, headers: corsHeaders };
+    context.res = { status: 204, headers: baseHeaders };
+    return;
+  }
+
+  if (req.method === "GET") {
+    context.res = { status: 200, body: { ok: true }, headers: baseHeaders };
     return;
   }
 
   try {
     if (!acsConnectionString || !emailSender) {
       context.log.error("Missing ACS configuration");
-      context.res = { status: 500, body: { error: "Server email not configured" }, headers: corsHeaders };
+  context.res = { status: 500, body: { error: "Server email not configured" }, headers: baseHeaders };
       return;
     }
 
     const body = req.body;
     if (!body || typeof body !== "object") {
-      context.res = { status: 400, body: { error: "Invalid JSON" }, headers: corsHeaders };
+  context.res = { status: 400, body: { error: "Invalid JSON" }, headers: baseHeaders };
       return;
     }
 
@@ -35,15 +41,15 @@ module.exports = async function (context, req) {
     const to = String(body.to || emailTo || "").trim();
 
     if (!name || !fromEmail || !message) {
-      context.res = { status: 400, body: { error: "Missing fields: name, email, message" }, headers: corsHeaders };
+  context.res = { status: 400, body: { error: "Missing fields: name, email, message" }, headers: baseHeaders };
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fromEmail)) {
-      context.res = { status: 400, body: { error: "Invalid email" }, headers: corsHeaders };
+  context.res = { status: 400, body: { error: "Invalid email" }, headers: baseHeaders };
       return;
     }
     if (!to) {
-      context.res = { status: 500, body: { error: "Recipient not configured" }, headers: corsHeaders };
+  context.res = { status: 500, body: { error: "Recipient not configured" }, headers: baseHeaders };
       return;
     }
 
@@ -59,13 +65,13 @@ module.exports = async function (context, req) {
     const result = await poller.pollUntilDone();
 
     if (result.status === "Succeeded") {
-      context.res = { status: 200, body: { ok: true }, headers: corsHeaders };
+      context.res = { status: 200, body: { ok: true }, headers: baseHeaders };
       return;
     }
     context.log.error("Email send failed", result);
-    context.res = { status: 502, body: { error: "Failed to send" }, headers: corsHeaders };
+    context.res = { status: 502, body: { error: "Failed to send" }, headers: baseHeaders };
   } catch (err) {
     context.log.error("Unhandled", err);
-    context.res = { status: 500, body: { error: "Server error" }, headers: corsHeaders };
+    context.res = { status: 500, body: { error: "Server error" }, headers: baseHeaders };
   }
 };
