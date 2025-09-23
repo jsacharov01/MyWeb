@@ -1,12 +1,13 @@
 /// <reference types="vite/client" />
 // 📁 src/pages/HomePage.tsx
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "../components/ui/button";
 import Navbar from "../components/Navbar";
 import ServiceCard from "../components/ServiceCard";
 import ProjectCard from "../components/ProjectCard";
 import portrait from "../portrait.png";
+import { sendContact } from "../lib/contact";
 
 interface Service {
   title: string;
@@ -24,7 +25,11 @@ interface HomePageProps {
 }
 
 const HomePage: FC<HomePageProps> = ({ services, projects }) => {
-
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState<{ ok?: boolean; error?: string } | null>(null);
 
   return (
   <div className="min-h-screen bg-slate-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
@@ -267,22 +272,59 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
+            onSubmit={async (e) => {
+              e.preventDefault();
+              setResult(null);
+              setLoading(true);
+              try {
+                await sendContact({ name, email, message });
+                setResult({ ok: true });
+                setName("");
+                setEmail("");
+                setMessage("");
+              } catch (err: any) {
+                setResult({ error: err?.message || "Failed to send" });
+              } finally {
+                setLoading(false);
+              }
+            }}
           >
             <input
               type="text"
               placeholder="Your Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
               className="p-3 rounded-lg border border-gray-300 focus:border-teal-500 focus:outline-none dark:bg-gray-900 dark:border-gray-700"
             />
             <input
               type="email"
               placeholder="Your Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
               className="p-3 rounded-lg border border-gray-300 focus:border-teal-500 focus:outline-none dark:bg-gray-900 dark:border-gray-700"
             />
             <textarea
               placeholder="Message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              required
               className="p-3 rounded-lg border border-gray-300 h-36 resize-none focus:border-teal-500 focus:outline-none dark:bg-gray-900 dark:border-gray-700"
             ></textarea>
-            <Button type="submit" className="bg-teal-600 hover:bg-teal-700 text-white">Send Message</Button>
+            {result?.ok && (
+              <p className="text-sm text-teal-700 bg-teal-50 border border-teal-200 rounded-md p-2 dark:text-teal-200 dark:bg-teal-900/30 dark:border-teal-800">
+                Message sent. I’ll get back to you soon.
+              </p>
+            )}
+            {result?.error && (
+              <p className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-md p-2 dark:text-red-200 dark:bg-red-900/30 dark:border-red-800">
+                {result.error}
+              </p>
+            )}
+            <Button type="submit" disabled={loading} className="bg-teal-600 hover:bg-teal-700 text-white">
+              {loading ? "Sending..." : "Send Message"}
+            </Button>
           </motion.form>
         </section>
 

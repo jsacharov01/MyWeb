@@ -1,0 +1,10 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "ACS_CONNECTION_STRING": "<acs-connection-string>",
+    "EMAIL_SENDER": "DoNotReply@<your-managed-domain>.azurecomm.net",
+    "EMAIL_TO": "you@example.com"
+  }
+}
