@@ -4,40 +4,14 @@
     "X-Robots-Tag": "noindex, nofollow, noarchive"
   },
   "navigationFallback": {
-    "rewrite": "/404.html",
+    "rewrite": "/index.html",
     "exclude": [
-  "/s/preview-8b3c9e/assets/*",
-  "/s/preview-8b3c9e/favicon.png",
+      "/assets/*",
       "/favicon.png",
       "/robots.txt",
       "/security.txt",
-      "/api/*",
-      "/s/preview-8b3c9e/*"
+      "/api/*"
     ]
   },
-  "routes": [
-    {
-      "route": "/",
-      "statusCode": 404
-    },
-    {
-      "route": "/index.html",
-      "statusCode": 404
-    },
-  { "route": "/assets/*", "statusCode": 404 },
-  { "route": "/s/preview-8b3c9e/assets/*" },
-    { "route": "/s/preview-8b3c9e/favicon.png" },
-    {
-      "route": "/s/preview-8b3c9e/*",
-      "rewrite": "/index.html"
-    },
-  { "route": "/favicon.png" },
-    { "route": "/robots.txt" },
-    { "route": "/security.txt" },
-    { "route": "/api/*" },
-    {
-      "route": "/*",
-      "statusCode": 404
-    }
-  ]
+  "routes": []
 }
