@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-
+import logo from "../logo.png";
 
 
 
@@ -10,7 +10,7 @@ const Navbar: FC = () => {
 			bg-white/80 dark:bg-gray-900/90 text-gray-900 dark:text-gray-100 backdrop-blur-md">
 			<h1 className="text-xl font-bold">
 				<a href="/" aria-label="Home">
-					<img src="/logo.png" alt="Crystal IT logo linking to home" className="h-16 sm:h-20 md:h-24 lg:h-28 w-auto" />
+					<img src={logo} alt="Crystal IT" className="h-16 sm:h-20 md:h-24 lg:h-28 w-auto" loading="eager" decoding="async" />
 				</a>
 			</h1>
 			<nav className="space-x-6 hidden md:block">
