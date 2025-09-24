@@ -1,5 +1,6 @@
 import React, { FC } from "react";
-import logo from "../logo.png";
+import logoLight from "../logo.png";
+import logoDark from "../logo_dark.png";
 
 
 
@@ -10,7 +11,22 @@ const Navbar: FC = () => {
 			bg-white/80 dark:bg-gray-900/90 text-gray-900 dark:text-gray-100 backdrop-blur-md">
 			<h1 className="text-xl font-bold">
 				<a href="/" aria-label="Home">
-					<img src={logo} alt="Crystal IT" className="h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36 w-auto" loading="eager" decoding="async" />
+					{/* Light mode logo */}
+					<img
+						src={logoLight}
+						alt="Crystal IT"
+						className="h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36 w-auto dark:hidden"
+						loading="eager"
+						decoding="async"
+					/>
+					{/* Dark mode logo */}
+					<img
+						src={logoDark}
+						alt="Crystal IT"
+						className="h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36 w-auto hidden dark:block"
+						loading="eager"
+						decoding="async"
+					/>
 				</a>
 			</h1>
 			<nav className="space-x-6 hidden md:block">
