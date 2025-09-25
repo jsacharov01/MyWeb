@@ -8,6 +8,7 @@ import ServiceCard from "../components/ServiceCard";
 import ProjectCard from "../components/ProjectCard";
 import portrait from "../portrait.png";
 import { sendContact } from "../lib/contact";
+import { ShieldCheck, Gauge, Rocket, BarChart3, Eye } from "lucide-react";
 
 interface Service {
   title: string;
@@ -30,6 +31,10 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<{ ok?: boolean; error?: string } | null>(null);
+
+  // Narrow result fields safely for TS
+  const isOk = !!result?.ok;
+  const errorMsg = result?.error;
 
   return (
   <div className="min-h-screen bg-slate-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
@@ -130,7 +135,7 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
         </section>
 
         {/* About Me */}
-  <section id="about" className="px-8 py-16 bg-white/70 dark:bg-gray-700">
+        <section id="about" className="px-8 py-16 bg-white/70 dark:bg-gray-700">
           <motion.h3 
             className="text-2xl font-bold mb-6"
             initial={{ opacity: 0, y: 20 }}
@@ -157,10 +162,22 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <li>✔️ Reliability</li>
-            <li>⚙️ Efficiency</li>
-            <li>🚀 Leadership</li>
-            <li>📊 Analytical Thinking</li>
+            <li className="flex items-center gap-2">
+              <ShieldCheck className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden />
+              <span>Reliability</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <Eye className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden />
+              <span>Transparency</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <Rocket className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden />
+              <span>Leadership</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <BarChart3 className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden />
+              <span>Analytical Thinking</span>
+            </li>
           </motion.ul>
         </section>
 
@@ -312,14 +329,14 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
               required
               className="p-3 rounded-lg border border-gray-300 h-36 resize-none focus:border-teal-500 focus:outline-none dark:bg-gray-900 dark:border-gray-700"
             ></textarea>
-            {result?.ok && (
+            {isOk && (
               <p className="text-sm text-teal-700 bg-teal-50 border border-teal-200 rounded-md p-2 dark:text-teal-200 dark:bg-teal-900/30 dark:border-teal-800">
                 Message sent. I’ll get back to you soon.
               </p>
             )}
-            {result?.error && (
+            {errorMsg && (
               <p className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-md p-2 dark:text-red-200 dark:bg-red-900/30 dark:border-red-800">
-                {result.error}
+                {errorMsg}
               </p>
             )}
             <Button type="submit" disabled={loading} className="bg-teal-600 hover:bg-teal-700 text-white">
