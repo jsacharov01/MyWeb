@@ -1,14 +1,18 @@
 export const services = [
 {
-title: "Agile Project Management",
-description: "Scrum, Kanban, vedení týmů, digitální transformace",
+title: "Vývoj v agilním režimu",
+description: "Scrum, vedení týmů, zaměření na produkt",
 },
 {
-title: "Business Analysis",
-description: "Procesní analýza, modelování v BPMN, datová analýza",
+title: "Projektové řízení dle PRINCE2",
+description: "Tvorba business case, příprava PID, řízení po etapách a další. Certifikace: PRINCE2 Foundation.",
 },
 {
-title: "Consulting",
-description: "IT strategie, optimalizace procesů, automatizace",
+title: "Byznys analýza",
+description: "Sběr požadavků, ověření dopadu a příprava podrobného zadání pro vývoj.",
+},
+{
+title: "Konzultace",
+description: "Tvorba IT strategie, optimalizace procesů a automatizace.",
 },
 ];

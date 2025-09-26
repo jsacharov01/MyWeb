@@ -41,15 +41,15 @@ module.exports = async function (context, req) {
     const to = String(body.to || emailTo || "").trim();
 
     if (!name || !fromEmail || !message) {
-  context.res = { status: 400, body: { error: "Missing fields: name, email, message" }, headers: baseHeaders };
+  context.res = { status: 400, body: { error: "Chybí pole: jméno, email, zpráva" }, headers: baseHeaders };
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fromEmail)) {
-  context.res = { status: 400, body: { error: "Invalid email" }, headers: baseHeaders };
+  context.res = { status: 400, body: { error: "Neplatný email" }, headers: baseHeaders };
       return;
     }
     if (!to) {
-  context.res = { status: 500, body: { error: "Recipient not configured" }, headers: baseHeaders };
+  context.res = { status: 500, body: { error: "Příjemce není nakonfigurován" }, headers: baseHeaders };
       return;
     }
 

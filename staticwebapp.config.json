@@ -8,6 +8,7 @@
       "route": "/s/preview-8b3c9e/*",
       "rewrite": "/index.html"
     },
+    { "route": "/certifikaty/*" },
     { "route": "/assets/*" },
     { "route": "/favicon.png" },
     { "route": "/robots.txt" },

@@ -6,8 +6,9 @@ import { Button } from "../components/ui/button";
 import Navbar from "../components/Navbar";
 import ServiceCard from "../components/ServiceCard";
 import ProjectCard from "../components/ProjectCard";
+import PricingSection from "../components/PricingSection";
 import portrait from "../portrait.png";
-import { sendContact } from "../lib/contact";
+import ContactSection from "../components/ContactSection";
 import { ShieldCheck, Gauge, Rocket, BarChart3, Eye } from "lucide-react";
 
 interface Service {
@@ -26,15 +27,7 @@ interface HomePageProps {
 }
 
 const HomePage: FC<HomePageProps> = ({ services, projects }) => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState<{ ok?: boolean; error?: string } | null>(null);
-
-  // Narrow result fields safely for TS
-  const isOk = !!result?.ok;
-  const errorMsg = result?.error;
+  // Contact form state moved into ContactSection component.
 
   return (
   <div className="min-h-screen bg-slate-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
@@ -60,16 +53,19 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
               transition={{ duration: 0.8 }}
             >
               <span className="inline-flex items-center gap-2 rounded-full border border-teal-200 bg-white/70 px-3 py-1 text-sm text-teal-700 shadow-sm dark:border-teal-800 dark:bg-gray-800/70 dark:text-teal-300">
-                Available for freelance & consulting
+                Dostupný pro projekty na volné noze a konzultace.
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-violet-200 bg-white/70 px-3 py-1 text-sm text-violet-700 shadow-sm dark:border-violet-800 dark:bg-gray-800/70 dark:text-violet-300">
+                Certifikace PRINCE2 Foundation
               </span>
               <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">
                 <span className="bg-gradient-to-r from-teal-500 to-sky-600 bg-clip-text text-transparent">
-                  IT Project Manager
+                  IT Projektový Manažer
                 </span>
-                <span className="block text-gray-900 dark:text-gray-100">& Business Analyst</span>
+                <span className="block text-gray-900 dark:text-gray-100">& Byznys Analytik</span>
               </h2>
               <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-                Řídím projekty, které spojují technologie a byznys. Zaměřuji se na spolehlivou
+                Zajišťuji realizaci změn, které mají skutečný dopad na váš byznys. Zaměřuji se na spolehlivou
                 realizaci, efektivitu a jasnou komunikaci.
               </p>
               <div className="flex flex-wrap items-center gap-3">
@@ -81,7 +77,7 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
                     else window.location.hash = "contact";
                   }}
                 >
-                  Contact Me
+                  Budu rád, když se mi ozvete.
                 </Button>
                 <Button
                   className="bg-gray-900/90 hover:bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-white"
@@ -91,7 +87,7 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
                     else window.location.hash = "portfolio";
                   }}
                 >
-                  View Portfolio
+                  Ukázky projektů
                 </Button>
               </div>
             </motion.div>
@@ -116,20 +112,20 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
           {/* Stats */}
           <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div>
-              <div className="text-3xl font-extrabold text-teal-600 dark:text-teal-400">8+</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
+              <div className="text-3xl font-extrabold text-teal-600 dark:text-teal-400">20+</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Let zkušeností v IT</div>
             </div>
             <div>
               <div className="text-3xl font-extrabold text-teal-600 dark:text-teal-400">25+</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Projects Delivered</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Projektů dokončeno</div>
             </div>
             <div>
-              <div className="text-3xl font-extrabold text-teal-600 dark:text-teal-400">5</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Industries</div>
+              <div className="text-3xl font-extrabold text-teal-600 dark:text-teal-400">5+</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Zemí</div>
             </div>
             <div>
               <div className="text-3xl font-extrabold text-teal-600 dark:text-teal-400">100%</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Delivery Focus</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Zaměření na zákazníka</div>
             </div>
           </div>
         </section>
@@ -143,7 +139,7 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            About Me
+            O mně
           </motion.h3>
           <motion.p 
             className="max-w-3xl mb-6"
@@ -152,8 +148,8 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Specializuji se na vedení IT projektů, procesní a datovou analýzu. Mojí
-            prioritou je spolehlivost, efektivita a leadership.
+            Pomáhám firmám úspěšně vést IT projekty a efektivně analyzovat byznysové požadavky. 
+            Stavím na spolehlivosti, transparentnosti a férovosti. Mám certifikaci PRINCE2 Foundation – strukturovaný přístup k řízení projektů a terminologii metodiky aplikuji v praxi.
           </motion.p>
           <motion.ul 
             className="grid grid-cols-2 md:grid-cols-4 gap-4"
@@ -164,11 +160,11 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
           >
             <li className="flex items-center gap-2">
               <ShieldCheck className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden />
-              <span>Reliability</span>
+              <span>Důvěrohodnost</span>
             </li>
             <li className="flex items-center gap-2">
               <Eye className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden />
-              <span>Transparency</span>
+              <span>Transparentnost</span>
             </li>
             <li className="flex items-center gap-2">
               <Rocket className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden />
@@ -176,7 +172,7 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
             </li>
             <li className="flex items-center gap-2">
               <BarChart3 className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden />
-              <span>Analytical Thinking</span>
+              <span>Analytické myšlení</span>
             </li>
           </motion.ul>
         </section>
@@ -184,7 +180,7 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
         {/* Services */}
         <section id="services" className="px-8 py-16">
           <div className="mb-8">
-            <h3 className="text-2xl md:text-3xl font-bold">Services</h3>
+            <h3 className="text-2xl md:text-3xl font-bold">Služby</h3>
             <p className="mt-2 text-gray-600 dark:text-gray-300">Co pro vás mohu udělat — od analýzy po realizaci.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -208,19 +204,49 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
           <ul className="flex flex-wrap gap-2 text-sm">
             {[
               "Agile/Scrum",
+              "PRINCE2 Foundation",
               "Jira",
               "Confluence",
+              "M365",
+              "Google Suite",
               "SQL",
               "Power BI",
-              "Python",
               "APIs",
-              "Data Modeling",
+              "AI",
             ].map((t) => (
               <li key={t} className="rounded-full border border-gray-200 bg-white px-3 py-1 dark:border-gray-700 dark:bg-gray-800">
                 {t}
               </li>
             ))}
           </ul>
+        </section>
+
+        {/* Certification Section */}
+        <section id="certifikace" className="px-8 py-12">
+          <h3 className="text-2xl font-bold mb-4">Certifikace</h3>
+          <ul className="grid gap-4 sm:grid-cols-2">
+            <li className="flex items-start gap-3 rounded-xl border border-gray-200 bg-white p-4 dark:border-gray-700 dark:bg-gray-800">
+              <div className="mt-1 h-8 w-8 flex items-center justify-center rounded-full bg-violet-100 text-violet-700 dark:bg-violet-900/40 dark:text-violet-300 text-sm font-semibold">
+                P2
+              </div>
+              <div>
+                <p className="font-semibold">PRINCE2 Foundation</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  Základy metodiky PRINCE2 – principy, témata, řízení po etapách a společná terminologie pro efektivní spolupráci.
+                </p>
+              </div>
+            </li>
+          </ul>
+          <a
+            href="/certifikaty/Prince2.pdf"
+            target="_blank"
+            rel="noopener"
+            className="mt-4 inline-flex items-center gap-2 text-sm text-violet-700 hover:text-violet-900 dark:text-violet-300 dark:hover:text-violet-200 underline decoration-dotted"
+            aria-label="Otevřít certifikát PRINCE2 (PDF) v novém okně"
+          >
+            Zobrazit certifikát (PDF)
+            <span className="sr-only">Otevře se v novém okně</span>
+          </a>
         </section>
 
         {/* Portfolio */}
@@ -250,104 +276,24 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
           </div>
         </section>
 
-        {/* Testimonials */}
-        <section className="px-8 py-16">
-          <h3 className="text-2xl font-bold mb-6">Testimonials</h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            {[{
-              quote:
-                "Jurij přinesl do projektu strukturu a jasnou komunikaci. Díky tomu jsme doručili včas a v kvalitě.",
-              author: "CTO, FinTech",
-            },
-            {
-              quote:
-                "Skvělá schopnost propojit business cíle s technickým řešením a řízením rizik.",
-              author: "Head of Operations, Retail",
-            }].map((t) => (
-              <figure key={t.author} className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-                <blockquote className="text-gray-700 dark:text-gray-200">“{t.quote}”</blockquote>
-                <figcaption className="mt-3 text-sm text-gray-600 dark:text-gray-400">{t.author}</figcaption>
-              </figure>
-            ))}
-          </div>
-        </section>
+  {/* Pricing (Ceník) */}
+  <PricingSection />
+
 
         {/* Contact */}
-        <section id="contact" className="px-8 py-16">
-          <motion.h3
-            className="text-2xl md:text-3xl font-bold mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            Contact
-          </motion.h3>
-          <motion.form
-            className="max-w-xl rounded-2xl border border-gray-200 bg-white p-6 shadow-sm grid gap-4 dark:border-gray-700 dark:bg-gray-800"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            onSubmit={async (e) => {
-              e.preventDefault();
-              setResult(null);
-              setLoading(true);
-              try {
-                await sendContact({ name, email, message });
-                setResult({ ok: true });
-                setName("");
-                setEmail("");
-                setMessage("");
-              } catch (err: any) {
-                setResult({ error: err?.message || "Failed to send" });
-              } finally {
-                setLoading(false);
-              }
-            }}
-          >
-            <input
-              type="text"
-              placeholder="Your Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-              className="p-3 rounded-lg border border-gray-300 focus:border-teal-500 focus:outline-none dark:bg-gray-900 dark:border-gray-700"
-            />
-            <input
-              type="email"
-              placeholder="Your Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="p-3 rounded-lg border border-gray-300 focus:border-teal-500 focus:outline-none dark:bg-gray-900 dark:border-gray-700"
-            />
-            <textarea
-              placeholder="Message"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              required
-              className="p-3 rounded-lg border border-gray-300 h-36 resize-none focus:border-teal-500 focus:outline-none dark:bg-gray-900 dark:border-gray-700"
-            ></textarea>
-            {isOk && (
-              <p className="text-sm text-teal-700 bg-teal-50 border border-teal-200 rounded-md p-2 dark:text-teal-200 dark:bg-teal-900/30 dark:border-teal-800">
-                Message sent. I’ll get back to you soon.
-              </p>
-            )}
-            {errorMsg && (
-              <p className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-md p-2 dark:text-red-200 dark:bg-red-900/30 dark:border-red-800">
-                {errorMsg}
-              </p>
-            )}
-            <Button type="submit" disabled={loading} className="bg-teal-600 hover:bg-teal-700 text-white">
-              {loading ? "Sending..." : "Send Message"}
-            </Button>
-          </motion.form>
-        </section>
+        <ContactSection />
 
         {/* Footer */}
         <footer className="px-8 py-6 bg-sky-50 text-gray-700 dark:bg-gray-800 dark:text-gray-100 text-center border-t border-gray-200 dark:border-gray-700">
-          © {new Date().getFullYear()} IT Project Manager & Analyst
+          <div className="flex flex-col items-center gap-2">
+            <div>
+              © {new Date().getFullYear()} IT Projektový Manažer & Byznys Analytik. Všechna práva vyhrazena.
+            </div>
+            <span className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-violet-100 text-violet-700 dark:bg-violet-900/40 dark:text-violet-300">
+              PRINCE2® Foundation
+            </span>
+            <p className="text-[10px] text-gray-500 dark:text-gray-400">PRINCE2® je registrovaná ochranná známka AXELOS Limited.</p>
+          </div>
         </footer>
       </div>
     </div>

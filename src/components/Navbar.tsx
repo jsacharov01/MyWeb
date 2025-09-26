@@ -30,10 +30,10 @@ const Navbar: FC = () => {
 				</a>
 			</h1>
 			<nav className="space-x-6 hidden md:block">
-				<a href="#about" className="hover:text-teal-600 dark:hover:text-teal-400 transition">About</a>
-				<a href="#services" className="hover:text-teal-600 dark:hover:text-teal-400 transition">Services</a>
-				<a href="#portfolio" className="hover:text-teal-600 dark:hover:text-teal-400 transition">Portfolio</a>
-				<a href="#contact" className="hover:text-teal-600 dark:hover:text-teal-400 transition">Contact</a>
+				<a href="#about" className="hover:text-teal-600 dark:hover:text-teal-400 transition">O mně</a>
+				<a href="#services" className="hover:text-teal-600 dark:hover:text-teal-400 transition">Služby</a>
+				<a href="#portfolio" className="hover:text-teal-600 dark:hover:text-teal-400 transition">Moje práce</a>
+				<a href="#contact" className="hover:text-teal-600 dark:hover:text-teal-400 transition">Kontakt</a>
 			</nav>
 			{/* Removed dark mode toggle button. Dark mode is now automatic. */}
 		</header>
