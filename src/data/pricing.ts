@@ -21,7 +21,7 @@ export const pricing: PricingItem[] = [
   },
   {
     title: "Nezávislá konzultace",
-    price: "1 000 Kč / MD",
+    price: "2 000 Kč / Hodinu",
     description:
       "Ad‑hoc konzultace – audit stavu, second opinion, facilitace workshopu nebo mentoring.",
   },
