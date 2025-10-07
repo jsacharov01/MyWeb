@@ -30,7 +30,7 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
   // Contact form state moved into ContactSection component.
 
   return (
-  <div className="min-h-screen bg-slate-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <div className="min-h-screen bg-slate-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
       <div className="container mx-auto max-w-6xl">
         <Navbar />
 
@@ -56,7 +56,7 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
                 Dostupný pro projekty na volné noze a konzultace.
               </span>
               <span className="inline-flex items-center gap-2 rounded-full border border-violet-200 bg-white/70 px-3 py-1 text-sm text-violet-700 shadow-sm dark:border-violet-800 dark:bg-gray-800/70 dark:text-violet-300">
-                Certifikace PRINCE2 Foundation
+                Certifikace PRINCE2 Project Manager (Foundation + Practitioner).
               </span>
               <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">
                 <span className="bg-gradient-to-r from-teal-500 to-sky-600 bg-clip-text text-transparent">
@@ -132,7 +132,7 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
 
         {/* About Me */}
         <section id="about" className="px-8 py-16 bg-white/70 dark:bg-gray-700">
-          <motion.h3 
+          <motion.h3
             className="text-2xl font-bold mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -141,17 +141,19 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
           >
             O mně
           </motion.h3>
-          <motion.p 
+          <motion.p
             className="max-w-3xl mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Pomáhám firmám úspěšně vést IT projekty a efektivně analyzovat byznysové požadavky. 
-            Stavím na spolehlivosti, transparentnosti a férovosti. Mám certifikaci PRINCE2 Foundation – strukturovaný přístup k řízení projektů a terminologii metodiky aplikuji v praxi.
+            IT projekty vnímám jako kombinaci technologií, lidí a jasně definovaných cílů.
+            Pomáhám firmám nastavit procesy tak, aby projekty běžely hladce a požadavky byly správně pochopené i realizované.
+            Zakládám si na otevřené komunikaci, spolehlivosti a férovém jednání.
+            Jsem držitelem certifikace PRINCE2 Project Manager (Foundation + Practitioner), kterou využívám k aplikaci strukturovaných a ověřených principů v projektovém řízení.
           </motion.p>
-          <motion.ul 
+          <motion.ul
             className="grid grid-cols-2 md:grid-cols-4 gap-4"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -203,8 +205,8 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
           <h3 className="text-2xl font-bold mb-4">Tech Stack</h3>
           <ul className="flex flex-wrap gap-2 text-sm">
             {[
-              "Agile/Scrum",
-              "PRINCE2 Foundation",
+              "Agile / Scrum",
+              "PRINCE2 Project Manager (Foundation + Practitioner)",
               "Jira",
               "Confluence",
               "M365",
@@ -230,23 +232,37 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
                 P2
               </div>
               <div>
-                <p className="font-semibold">PRINCE2 Foundation</p>
+                <p className="font-semibold">PRINCE2 Project Manager (Foundation + Practitioner)</p>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Základy metodiky PRINCE2 – principy, témata, řízení po etapách a společná terminologie pro efektivní spolupráci.
+                  Držitel obou certifikací PRINCE2 Foundation a PRINCE2 Practitioner – způsobilý samostatně vykonávat roli projektového manažera dle metodiky PRINCE2 (principy, témata, procesy a tailoring).
                 </p>
               </div>
             </li>
           </ul>
-          <a
-            href="/certifikaty/Prince2.pdf"
-            target="_blank"
-            rel="noopener"
-            className="mt-4 inline-flex items-center gap-2 text-sm text-violet-700 hover:text-violet-900 dark:text-violet-300 dark:hover:text-violet-200 underline decoration-dotted"
-            aria-label="Otevřít certifikát PRINCE2 (PDF) v novém okně"
-          >
-            Zobrazit certifikát (PDF)
-            <span className="sr-only">Otevře se v novém okně</span>
-          </a>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <a
+              href="/certifikaty/PRINCE2Practitioner.pdf"
+              target="_blank"
+              rel="noopener"
+              className="inline-flex items-center gap-2 rounded-md border border-violet-200 bg-white/70 px-3 py-1 text-sm font-medium text-violet-700 hover:bg-violet-50 hover:text-violet-900 dark:border-violet-800 dark:bg-gray-800/70 dark:text-violet-300 dark:hover:bg-gray-800"
+              aria-label="Otevřít certifikát PRINCE2 Practitioner (PDF) v novém okně"
+            >
+              PRINCE2 Practitioner (PDF)
+              <span aria-hidden className="text-xs">↗</span>
+              <span className="sr-only">Otevře se v novém okně</span>
+            </a>
+            <a
+              href="/certifikaty/PRINCE2ProjectManager.pdf"
+              target="_blank"
+              rel="noopener"
+              className="inline-flex items-center gap-2 rounded-md border border-violet-200 bg-white/70 px-3 py-1 text-sm font-medium text-violet-700 hover:bg-violet-50 hover:text-violet-900 dark:border-violet-800 dark:bg-gray-800/70 dark:text-violet-300 dark:hover:bg-gray-800"
+              aria-label="Otevřít certifikát PRINCE2 Project Manager (PDF) v novém okně"
+            >
+              PRINCE2 Project Manager (PDF)
+              <span aria-hidden className="text-xs">↗</span>
+              <span className="sr-only">Otevře se v novém okně</span>
+            </a>
+          </div>
         </section>
 
         {/* Portfolio */}
@@ -276,8 +292,8 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
           </div>
         </section>
 
-  {/* Pricing (Ceník) */}
-  <PricingSection />
+        {/* Pricing (Ceník) */}
+        <PricingSection />
 
 
         {/* Contact */}
@@ -290,9 +306,18 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
               © {new Date().getFullYear()} IT Projektový Manažer & Byznys Analytik. Všechna práva vyhrazena.
             </div>
             <span className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-violet-100 text-violet-700 dark:bg-violet-900/40 dark:text-violet-300">
-              PRINCE2® Foundation
+              PRINCE2® Project Manager
             </span>
             <p className="text-[10px] text-gray-500 dark:text-gray-400">PRINCE2® je registrovaná ochranná známka AXELOS Limited.</p>
+            <a
+              href="https://www.linkedin.com/in/jurij-sacharov/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-teal-700 hover:text-teal-900 dark:text-teal-300 dark:hover:text-teal-200 underline decoration-dotted"
+              aria-label="Otevřít můj LinkedIn profil v novém okně"
+            >
+              LinkedIn profil
+            </a>
           </div>
         </footer>
       </div>

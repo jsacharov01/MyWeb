@@ -8,7 +8,7 @@ export interface PricingItem {
 // Orientační ceny – lze upravit po úvodní konzultaci.
 export const pricing: PricingItem[] = [
   {
-    title: "Řízení (Agilní / Prince2)",
+    title: "Řízení (Agilní / PRINCE2)",
     price: "300 000 Kč",
     description:
       "Projekt ~6 měsíců, tým do 6 lidí. End‑to‑end koordinace, governance, reporting, řízení rizik a stakeholder management.",

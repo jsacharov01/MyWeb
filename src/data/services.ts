@@ -5,7 +5,7 @@ description: "Scrum, vedení týmů, zaměření na produkt",
 },
 {
 title: "Projektové řízení dle PRINCE2",
-description: "Tvorba business case, příprava PID, řízení po etapách a další. Certifikace: PRINCE2 Foundation.",
+description: "Tvorba business case, příprava PID, řízení po etapách a další. Certifikace: PRINCE2 Project Manager (Foundation + Practitioner).",
 },
 {
 title: "Byznys analýza",
