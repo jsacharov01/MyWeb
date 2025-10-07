@@ -1,22 +1,40 @@
 {
   "$schema": "https://json.schemastore.org/staticwebapp.config.json",
-  "globalHeaders": {
-    "X-Robots-Tag": "noindex, nofollow, noarchive"
+  
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": [
+      "/assets/*",
+      "/favicon.png",
+      "/robots.txt",
+      "/security.txt",
+      "/api/*"
+    ]
   },
   "routes": [
     {
       "route": "/s/preview-8b3c9e/*",
       "rewrite": "/index.html"
     },
-    { "route": "/certifikaty/*" },
-    { "route": "/assets/*" },
-    { "route": "/favicon.png" },
+    { "route": "/certifikaty/*", "headers": { "Cache-Control": "public, max-age=31536000, immutable" } },
+    { "route": "/assets/*", "headers": { "Cache-Control": "public, max-age=31536000, immutable" } },
+    { "route": "/favicon.png", "headers": { "Cache-Control": "public, max-age=31536000, immutable" } },
     { "route": "/robots.txt" },
     { "route": "/security.txt" },
     { "route": "/api/*" },
+    { "route": "/index.html", "headers": { "Cache-Control": "no-cache" } },
+    { "route": "/", "headers": { "Cache-Control": "no-cache" } },
     {
       "route": "/*",
-      "statusCode": 404
+      "rewrite": "/index.html"
     }
-  ]
+  ],
+  "mimeTypes": {
+    ".json": "text/json"
+  },
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/404.html"
+    }
+  }
 }

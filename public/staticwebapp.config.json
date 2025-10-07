@@ -1,8 +1,5 @@
 {
   "$schema": "https://json.schemastore.org/staticwebapp.config.json",
-  "globalHeaders": {
-    "X-Robots-Tag": "noindex, nofollow, noarchive"
-  },
   "navigationFallback": {
     "rewrite": "/index.html",
     "exclude": [
@@ -13,5 +10,8 @@
       "/api/*"
     ]
   },
-  "routes": []
+  "routes": [],
+  "responseOverrides": {
+    "404": { "rewrite": "/404.html" }
+  }
 }

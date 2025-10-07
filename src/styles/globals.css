@@ -27,3 +27,14 @@ a {
   text-decoration: none;
   color: inherit; /* keep links harmonized by default */
 }
+
+/* Offset for sticky navbar when navigating to anchors */
+section[id] {
+  scroll-margin-top: 7rem; /* roughly navbar height */
+}
+
+/* Ensure focused headings/sections are visible when navigated via hash */
+section[id]:focus-visible {
+  outline: 2px dashed #0f766e; /* teal-700 */
+  outline-offset: 4px;
+}

@@ -9,7 +9,7 @@ import ProjectCard from "../components/ProjectCard";
 import PricingSection from "../components/PricingSection";
 import portrait from "../portrait.png";
 import ContactSection from "../components/ContactSection";
-import { ShieldCheck, Gauge, Rocket, BarChart3, Eye } from "lucide-react";
+import { ShieldCheck, Gauge, Rocket, BarChart3, Eye, MapPin, Globe, Briefcase } from "lucide-react";
 
 interface Service {
   title: string;
@@ -58,12 +58,12 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
               <span className="inline-flex items-center gap-2 rounded-full border border-violet-200 bg-white/70 px-3 py-1 text-sm text-violet-700 shadow-sm dark:border-violet-800 dark:bg-gray-800/70 dark:text-violet-300">
                 Certifikace PRINCE2 Project Manager (Foundation + Practitioner).
               </span>
-              <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">
+              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
                 <span className="bg-gradient-to-r from-teal-500 to-sky-600 bg-clip-text text-transparent">
                   IT Projektový Manažer
                 </span>
                 <span className="block text-gray-900 dark:text-gray-100">& Byznys Analytik</span>
-              </h2>
+              </h1>
               <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
                 Zajišťuji realizaci změn, které mají skutečný dopad na váš byznys. Zaměřuji se na spolehlivou
                 realizaci, efektivitu a jasnou komunikaci.
@@ -102,7 +102,7 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
                 <div className="absolute -inset-2 -z-10 rounded-3xl bg-gradient-to-tr from-teal-400/40 to-sky-400/40 blur-xl"></div>
                 <img
                   src={portrait}
-                  alt="Professional portrait"
+                  alt="Jurij Sacharov – IT projektový manažer a byznys analytik"
                   className="w-full rounded-3xl ring-1 ring-gray-200 shadow-xl dark:ring-gray-700"
                 />
               </div>
@@ -132,51 +132,111 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
 
         {/* About Me */}
         <section id="about" className="px-8 py-16 bg-white/70 dark:bg-gray-700">
-          <motion.h3
-            className="text-2xl font-bold mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            O mně
-          </motion.h3>
-          <motion.p
-            className="max-w-3xl mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            IT projekty vnímám jako kombinaci technologií, lidí a jasně definovaných cílů.
-            Pomáhám firmám nastavit procesy tak, aby projekty běžely hladce a požadavky byly správně pochopené i realizované.
-            Zakládám si na otevřené komunikaci, spolehlivosti a férovém jednání.
-            Jsem držitelem certifikace PRINCE2 Project Manager (Foundation + Practitioner), kterou využívám k aplikaci strukturovaných a ověřených principů v projektovém řízení.
-          </motion.p>
-          <motion.ul
-            className="grid grid-cols-2 md:grid-cols-4 gap-4"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <li className="flex items-center gap-2">
-              <ShieldCheck className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden />
-              <span>Důvěrohodnost</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <Eye className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden />
-              <span>Transparentnost</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <Rocket className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden />
-              <span>Leadership</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <BarChart3 className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden />
-              <span>Analytické myšlení</span>
-            </li>
-          </motion.ul>
+          <div className="grid md:grid-cols-12 gap-8 items-start">
+            {/* Left: text content */}
+            <div className="md:col-span-7">
+              <motion.h3
+                className="text-2xl font-bold mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                O mně
+              </motion.h3>
+              <motion.p
+                className="max-w-3xl mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                IT projekty vnímám jako kombinaci technologií, lidí a jasně definovaných cílů.
+                Pomáhám firmám nastavit procesy tak, aby projekty běžely hladce a požadavky byly správně pochopené i realizované.
+                Zakládám si na otevřené komunikaci, spolehlivosti a férovém jednání.
+                Jsem držitelem certifikace PRINCE2 Project Manager (Foundation + Practitioner), kterou využívám k aplikaci strukturovaných a ověřených principů v projektovém řízení.
+              </motion.p>
+              <motion.ul
+                className="grid grid-cols-2 md:grid-cols-4 gap-4"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <li className="flex items-center gap-2">
+                  <ShieldCheck className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden />
+                  <span>Důvěrohodnost</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Eye className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden />
+                  <span>Transparentnost</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Rocket className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden />
+                  <span>Leadership</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <BarChart3 className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden />
+                  <span>Analytické myšlení</span>
+                </li>
+              </motion.ul>
+            </div>
+
+            {/* Right: Quick Facts card */}
+            <motion.aside
+              className="md:col-span-5 relative"
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              {/* Decorative gradient blob */}
+              <div aria-hidden className="pointer-events-none absolute -inset-6 -z-10 opacity-70">
+                <div className="absolute -top-8 -right-6 h-48 w-48 rounded-full blur-3xl bg-teal-300/40 dark:bg-teal-500/20" />
+                <div className="absolute -bottom-10 -left-8 h-56 w-56 rounded-full blur-3xl bg-sky-300/40 dark:bg-sky-500/20" />
+              </div>
+
+              <div className="relative rounded-2xl border border-gray-200 bg-white/80 p-6 shadow-xl backdrop-blur-md dark:border-gray-700 dark:bg-gray-800/70">
+                <h4 className="text-lg font-semibold mb-4">Rychlá fakta</h4>
+                <ul className="space-y-3 text-sm">
+                  <li className="flex items-center gap-3">
+                    <MapPin className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden />
+                    <span>Praha · remote / onsite</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Briefcase className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden />
+                    <span>Freelancer & konzultant</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Globe className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden />
+                    <span>Jazyky: CZ / EN</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <BarChart3 className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden />
+                    <span>Zaměření: projekty s měřitelným dopadem</span>
+                  </li>
+                </ul>
+
+                <div className="mt-4 inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-violet-100 text-violet-700 dark:bg-violet-900/40 dark:text-violet-300">
+                  PRINCE2® Project Manager
+                </div>
+
+                <div className="mt-5">
+                  <Button
+                    className="w-full bg-teal-600 hover:bg-teal-700 text-white"
+                    onClick={() => {
+                      const el = document.getElementById("contact");
+                      if (el) el.scrollIntoView({ behavior: "smooth" });
+                      else window.location.hash = "contact";
+                    }}
+                    aria-label="Přejít na kontaktní formulář"
+                  >
+                    Ozvěte se mi
+                  </Button>
+                </div>
+              </div>
+            </motion.aside>
+          </div>
         </section>
 
         {/* Services */}
@@ -303,7 +363,7 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
         <footer className="px-8 py-6 bg-sky-50 text-gray-700 dark:bg-gray-800 dark:text-gray-100 text-center border-t border-gray-200 dark:border-gray-700">
           <div className="flex flex-col items-center gap-2">
             <div>
-              © {new Date().getFullYear()} IT Projektový Manažer & Byznys Analytik. Všechna práva vyhrazena.
+              © {new Date().getFullYear()} Jurij Sacharov — IT Projektový manažer & Byznys analytik. Všechna práva vyhrazena.
             </div>
             <span className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-violet-100 text-violet-700 dark:bg-violet-900/40 dark:text-violet-300">
               PRINCE2® Project Manager

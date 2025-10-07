@@ -9,6 +9,9 @@ const ContactSection: React.FC = () => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<{ ok?: boolean; error?: string } | null>(null);
+  // Anti-spam fields
+  const [hp, setHp] = useState("");
+  const [startedAt] = useState<number>(() => Date.now());
 
   const isOk = !!result?.ok;
   const errorMsg = result?.error;
@@ -43,11 +46,12 @@ const ContactSection: React.FC = () => {
             setResult(null);
             setLoading(true);
             try {
-              await sendContact({ name, email, message });
+              await sendContact({ name, email, message, hp, startedAt });
               setResult({ ok: true });
               setName("");
               setEmail("");
               setMessage("");
+              setHp("");
             } catch (err: any) {
               setResult({ error: err?.message || "Failed to send" });
             } finally {
@@ -55,6 +59,20 @@ const ContactSection: React.FC = () => {
             }
           }}
         >
+          {/* Honeypot pole – skryté pro uživatele, bots jej často vyplní */}
+          <div className="hidden" aria-hidden>
+            <label>
+              Nevyplňujte toto pole
+              <input
+                type="text"
+                name="hp"
+                tabIndex={-1}
+                autoComplete="off"
+                value={hp}
+                onChange={(e) => setHp(e.target.value)}
+              />
+            </label>
+          </div>
           <input
             type="text"
             placeholder="Vaše jméno"

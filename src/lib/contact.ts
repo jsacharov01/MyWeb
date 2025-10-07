@@ -2,6 +2,9 @@ export type ContactPayload = {
   name: string;
   email: string;
   message: string;
+  // Simple anti-spam fields
+  hp?: string; // honeypot (should be empty)
+  startedAt?: number; // epoch ms when user opened the form
 };
 
 export async function sendContact(payload: ContactPayload) {
