@@ -4,7 +4,8 @@ import App from "./App";
 import "./styles/globals.css";
 
 // Initialize dark mode class on first paint based on OS preference
-const prefersDark = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+const mql = typeof window !== 'undefined' && window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+const prefersDark = !!(mql && mql.matches);
 if (prefersDark) {
   document.documentElement.classList.add('dark');
 } else {
