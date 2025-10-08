@@ -14,7 +14,7 @@ const Navbar: FC = () => {
 	return (
 		<header className="flex justify-between items-center px-8 py-4 sticky top-0 z-50 border-b border-gray-200 dark:border-gray-700
 			bg-white/80 dark:bg-gray-900/90 text-gray-900 dark:text-gray-100 backdrop-blur-md">
-			<h1 className="text-xl font-bold">
+			<h1 className="relative flex items-center gap-3 text-xl font-bold">
 				<a href="/" aria-label="Home">
 					{/* Light mode logo */}
 					<img
@@ -37,6 +37,10 @@ const Navbar: FC = () => {
 						Jurij Sacharov
 					</span>
 				</a>
+				{/* Mobile-only name next to the logo when menu is closed */}
+				<span className="md:hidden block text-sm font-semibold text-gray-900 dark:text-gray-100">
+					Jurij Sacharov
+				</span>
 			</h1>
 			<nav className="space-x-6 hidden md:flex items-center">
 				<a href="#about" className="hover:text-teal-600 dark:hover:text-teal-400 transition">O mně</a>
@@ -70,7 +74,7 @@ const Navbar: FC = () => {
 			{open && (
 				<div className="absolute left-0 right-0 top-full mt-0 border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-6 py-6 shadow-lg md:hidden animate-in fade-in slide-in-from-top-2">
 					<ul className="flex flex-col gap-4 text-sm">
-						<li className="text-base font-semibold text-gray-900 dark:text-gray-100">Jurij Sacharov</li>
+						{/* Moved name next to logo for mobile; removed from mobile menu */}
 						<li><a onClick={closeMenu} href="#about" className="block hover:text-teal-600 dark:hover:text-teal-400">O mně</a></li>
 						<li><a onClick={closeMenu} href="#services" className="block hover:text-teal-600 dark:hover:text-teal-400">Služby</a></li>
 						<li><a onClick={closeMenu} href="#pricing" className="block hover:text-teal-600 dark:hover:text-teal-400">Ceník</a></li>
