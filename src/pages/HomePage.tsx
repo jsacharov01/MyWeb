@@ -209,7 +209,7 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
                   </li>
                   <li className="flex items-center gap-3">
                     <Globe className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden />
-                    <span>Jazyky: CZ / EN</span>
+                    <span>Jazyky: CZ / EN / RU</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <BarChart3 className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden />
