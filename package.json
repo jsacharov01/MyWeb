@@ -3,10 +3,16 @@
     "node": ">=20.19.0"
   },
   "dependencies": {
+    "@giscus/react": "^3.0.0",
     "framer-motion": "^12.23.12",
+    "front-matter": "^4.0.2",
+    "gray-matter": "^4.0.3",
     "lucide-react": "^0.544.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-markdown": "^9.0.3",
+    "react-router-dom": "^6.26.1",
+    "remark-gfm": "^4.0.0",
     "sharp": "^0.33.5"
   },
   "devDependencies": {

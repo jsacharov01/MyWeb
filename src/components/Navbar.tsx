@@ -43,11 +43,12 @@ const Navbar: FC = () => {
 				</span>
 			</h1>
 			<nav className="space-x-6 hidden md:flex items-center">
-				<a href="#about" className="hover:text-teal-600 dark:hover:text-teal-400 transition">O mně</a>
-				<a href="#services" className="hover:text-teal-600 dark:hover:text-teal-400 transition">Služby</a>
-				<a href="#portfolio" className="hover:text-teal-600 dark:hover:text-teal-400 transition">Moje práce</a>
-				<a href="#pricing" className="hover:text-teal-600 dark:hover:text-teal-400 transition">Ceník</a>
-				<a href="#contact" className="hover:text-teal-600 dark:hover:text-teal-400 transition">Kontakt</a>
+				<a href="/#about" className="hover:text-teal-600 dark:hover:text-teal-400 transition">O mně</a>
+				<a href="/#services" className="hover:text-teal-600 dark:hover:text-teal-400 transition">Služby</a>
+				<a href="/#portfolio" className="hover:text-teal-600 dark:hover:text-teal-400 transition">Moje práce</a>
+				<a href="/#pricing" className="hover:text-teal-600 dark:hover:text-teal-400 transition">Ceník</a>
+				<a href="/#contact" className="hover:text-teal-600 dark:hover:text-teal-400 transition">Kontakt</a>
+				<a href="/blog" className="hover:text-teal-600 dark:hover:text-teal-400 transition">Blog</a>
 				<a
 					href="https://www.linkedin.com/in/jurij-sacharov/"
 					title="LinkedIn profil"
@@ -75,11 +76,12 @@ const Navbar: FC = () => {
 				<div className="absolute left-0 right-0 top-full mt-0 border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-6 py-6 shadow-lg md:hidden animate-in fade-in slide-in-from-top-2">
 					<ul className="flex flex-col gap-4 text-sm">
 						{/* Moved name next to logo for mobile; removed from mobile menu */}
-						<li><a onClick={closeMenu} href="#about" className="block hover:text-teal-600 dark:hover:text-teal-400">O mně</a></li>
-						<li><a onClick={closeMenu} href="#services" className="block hover:text-teal-600 dark:hover:text-teal-400">Služby</a></li>
-						<li><a onClick={closeMenu} href="#pricing" className="block hover:text-teal-600 dark:hover:text-teal-400">Ceník</a></li>
-						<li><a onClick={closeMenu} href="#portfolio" className="block hover:text-teal-600 dark:hover:text-teal-400">Moje práce</a></li>
-						<li><a onClick={closeMenu} href="#contact" className="block hover:text-teal-600 dark:hover:text-teal-400">Kontakt</a></li>
+						<li><a onClick={closeMenu} href="/#about" className="block hover:text-teal-600 dark:hover:text-teal-400">O mně</a></li>
+						<li><a onClick={closeMenu} href="/#services" className="block hover:text-teal-600 dark:hover:text-teal-400">Služby</a></li>
+						<li><a onClick={closeMenu} href="/#pricing" className="block hover:text-teal-600 dark:hover:text-teal-400">Ceník</a></li>
+						<li><a onClick={closeMenu} href="/#portfolio" className="block hover:text-teal-600 dark:hover:text-teal-400">Moje práce</a></li>
+						<li><a onClick={closeMenu} href="/#contact" className="block hover:text-teal-600 dark:hover:text-teal-400">Kontakt</a></li>
+						<li><a onClick={closeMenu} href="/blog" className="block hover:text-teal-600 dark:hover:text-teal-400">Blog</a></li>
 						<li>
 							<a
 								className="inline-flex items-center gap-2 rounded-md border border-gray-200 dark:border-gray-700 px-3 py-2 hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400 dark:hover:border-teal-500"
