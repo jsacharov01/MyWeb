@@ -17,4 +17,4 @@ function hello(name: string) {
 }
 ```
 
-Tlačítkem níže můžete dát článku like a na konci stránky zanechat komentář.
+Na konci stránky můžete zanechat komentář.
