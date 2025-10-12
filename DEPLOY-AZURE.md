@@ -3,7 +3,6 @@
 ## Resources
 - Azure Static Web Apps (SWA) — hosts the Vite app and the Functions API
 - Azure Communication Services (ACS) Email — sends email from the contact form
-- GitHub Gist — ultra-simple JSON storage for blog likes (via Functions)
 
 ## Create resources
 1. Create a Static Web App in Azure Portal and connect this GitHub repo.
@@ -42,55 +41,6 @@ Use `sendContact` from `src/lib/contact.ts` to post to `/api/send-email`.
 Verify the workflow has access to the Azure Static Web Apps deploy token secret
 `AZURE_STATIC_WEB_APPS_API_TOKEN_*` (created when connecting the SWA to this repo).
 
-## Blog Likes (GitHub Gist storage)
-
-The `api/blog-likes` function stores like counts in a private GitHub Gist as a JSON file.
-
-### One-time setup
-1) Create an empty private Gist
-   - Go to https://gist.github.com/new
-   - Filename: `likes.json`; Content: `{}`
-   - Save and copy the Gist ID (the long hash in the URL).
-
-2) Create a GitHub Personal Access Token (classic)
-   - Go to GitHub → Settings → Developer settings → Personal access tokens (classic)
-   - Generate new token with scope: `gist` only
-   - Copy the token (it will be shown once)
-
-3) Add app settings to Azure Static Web Apps → Configuration
-   - `GITHUB_TOKEN` = the PAT from step 2 (scope: gist)
-   - `BLOG_LIKES_GIST_ID` = the Gist ID from step 1
-   - `BLOG_LIKES_GIST_FILE` = `likes.json` (optional; defaults to `likes.json`)
-   - Optional rate limits:
-     - `LIKES_RATE_WINDOW_MS` (default 60000)
-     - `LIKES_RATE_MAX` (default 30)
-
-### Local development for Likes
-Add the same values to `api/local.settings.json` under `Values`:
-
-```json
-{
-  "IsEncrypted": false,
-  "Values": {
-    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    "FUNCTIONS_WORKER_RUNTIME": "node",
-    "ACS_CONNECTION_STRING": "<acs-connection-string>",
-    "EMAIL_SENDER": "DoNotReply@<your-managed-domain>.azurecomm.net",
-    "EMAIL_TO": "you@example.com",
-    "GITHUB_TOKEN": "<your-github-pat-with-gist-scope>",
-    "BLOG_LIKES_GIST_ID": "<your-gist-id>",
-    "BLOG_LIKES_GIST_FILE": "likes.json"
-  }
-}
-```
-
-Run the Functions host from `api/`:
-
-```bash
-func start
-```
-
-If the host fails due to Node version, use Node 18 or 20 (Functions v4 compatible).
 
 ## Comments (Giscus)
 
@@ -119,12 +69,9 @@ Deploy, and the comment widget should render under each post.
 2) Visit your SWA URL:
    - Verify main site loads and blog routes work (`/blog`, `/blog/<slug>`).
 3) Test API endpoints:
-   - Likes (Production): `GET https://<your-swa>.azurestaticapps.net/api/blog-likes?slug=<slug>`
    - Email: use the contact form or call `/api/send-email` with required fields.
 
 ## Troubleshooting
 
-- 500 on `/api/blog-likes`: ensure `GITHUB_TOKEN`, `BLOG_LIKES_GIST_ID` are set in SWA Configuration.
-- 401/403 from GitHub API: verify the PAT has `gist` scope and the Gist is accessible.
 - Comments widget not showing: verify Discussions is enabled, Giscus app authorized, and IDs in `Comments.tsx` are correct.
 - Local Functions errors on startup: ensure Node 18 or 20 is used for the Functions host.

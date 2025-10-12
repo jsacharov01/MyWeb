@@ -8,7 +8,10 @@ export type ContactPayload = {
 };
 
 export async function sendContact(payload: ContactPayload) {
-  const res = await fetch("/api/send-email", {
+  const apiBase = (import.meta as any).env?.DEV
+    ? ((import.meta as any).env?.VITE_API_BASE || "http://localhost:7071")
+    : "";
+  const res = await fetch(`${apiBase}/api/send-email`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload)
