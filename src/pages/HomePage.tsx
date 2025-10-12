@@ -31,8 +31,10 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
 
   return (
     <div className="min-h-screen bg-slate-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+      {/* Full-width navbar (outside of the constrained container) */}
+      <Navbar />
+
       <div className="container mx-auto max-w-6xl">
-        <Navbar />
 
         {/* Hero */}
         <section className="relative overflow-hidden px-8 py-16 md:py-24">
