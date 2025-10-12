@@ -28,9 +28,10 @@
     "vite": "^7.1.5"
   },
   "scripts": {
-    "predev": "node scripts/generate-favicons.js",
+  "predev": "node scripts/generate-favicons.js && node scripts/optimize-images.js",
     "dev": "vite",
-    "prebuild": "node scripts/generate-favicons.js",
+    "images:optimize": "node scripts/optimize-images.js",
+    "prebuild": "node scripts/generate-favicons.js && node scripts/optimize-images.js",
     "build": "vite build",
     "preview": "vite preview"
   }

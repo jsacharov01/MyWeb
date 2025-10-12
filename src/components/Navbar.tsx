@@ -15,23 +15,68 @@ const Navbar: FC = () => {
 		<header className="flex justify-between items-center px-8 py-4 sticky top-0 z-50 border-b border-gray-200 dark:border-gray-700
 			bg-white/80 dark:bg-gray-900/90 text-gray-900 dark:text-gray-100 backdrop-blur-md">
 			<h1 className="relative flex items-center gap-3 text-xl font-bold">
-				<a href="/" aria-label="Home">
-					{/* Light mode logo */}
-					<img
-						src={logoLight}
-						alt="Crystal IT"
-						className="h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36 w-auto dark:hidden"
-						loading="eager"
-						decoding="async"
-					/>
-					{/* Dark mode logo */}
-					<img
-						src={logoDark}
-						alt="Crystal IT"
-						className="h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36 w-auto hidden dark:block"
-						loading="eager"
-						decoding="async"
-					/>
+								<a href="/" aria-label="Home">
+										{import.meta.env.PROD ? (
+											<>
+												{/* Light mode logo (optimized) */}
+												<picture className="dark:hidden">
+													<source
+														type="image/avif"
+														srcSet="/images/optimized/logo-w400.avif 400w, /images/optimized/logo-w800.avif 800w"
+														sizes="(min-width:1280px) 320px, (min-width:1024px) 288px, (min-width:768px) 224px, (min-width:640px) 192px, 160px"
+													/>
+													<source
+														type="image/webp"
+														srcSet="/images/optimized/logo-w400.webp 400w, /images/optimized/logo-w800.webp 800w"
+														sizes="(min-width:1280px) 320px, (min-width:1024px) 288px, (min-width:768px) 224px, (min-width:640px) 192px, 160px"
+													/>
+													<img
+														src={logoLight}
+														alt="Crystal IT"
+														className="h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36 w-auto"
+														loading="eager"
+														decoding="async"
+													/>
+												</picture>
+												{/* Dark mode logo (optimized) */}
+												<picture className="hidden dark:block">
+													<source
+														type="image/avif"
+														srcSet="/images/optimized/logo_dark-w400.avif 400w, /images/optimized/logo_dark-w800.avif 800w"
+														sizes="(min-width:1280px) 320px, (min-width:1024px) 288px, (min-width:768px) 224px, (min-width:640px) 192px, 160px"
+													/>
+													<source
+														type="image/webp"
+														srcSet="/images/optimized/logo_dark-w400.webp 400w, /images/optimized/logo_dark-w800.webp 800w"
+														sizes="(min-width:1280px) 320px, (min-width:1024px) 288px, (min-width:768px) 224px, (min-width:640px) 192px, 160px"
+													/>
+													<img
+														src={logoDark}
+														alt="Crystal IT"
+														className="h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36 w-auto"
+														loading="eager"
+														decoding="async"
+													/>
+												</picture>
+											</>
+										) : (
+											<>
+												<img
+													src={logoLight}
+													alt="Crystal IT"
+													className="h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36 w-auto dark:hidden"
+													loading="eager"
+													decoding="async"
+												/>
+												<img
+													src={logoDark}
+													alt="Crystal IT"
+													className="h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36 w-auto hidden dark:block"
+													loading="eager"
+													decoding="async"
+												/>
+											</>
+										)}
 
 					<span className="hidden md:block absolute left-10 bottom-4 text-sm font-semibold text-gray-900 dark:text-gray-100 pointer-events-none">
 						Jurij Sacharov

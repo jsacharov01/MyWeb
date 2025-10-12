@@ -102,11 +102,35 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
             >
               <div className="relative mx-auto max-w-sm">
                 <div className="absolute -inset-2 -z-10 rounded-3xl bg-gradient-to-tr from-teal-400/40 to-sky-400/40 blur-xl"></div>
-                <img
-                  src={portrait}
-                  alt="Jurij Sacharov – IT projektový manažer a byznys analytik"
-                  className="w-full rounded-3xl ring-1 ring-gray-200 shadow-xl dark:ring-gray-700"
-                />
+                {import.meta.env.PROD ? (
+                  <picture>
+                    <source
+                      type="image/avif"
+                      srcSet="/images/optimized/portrait-w400.avif 400w, /images/optimized/portrait-w800.avif 800w"
+                      sizes="(min-width:1024px) 480px, (min-width:768px) 420px, 100vw"
+                    />
+                    <source
+                      type="image/webp"
+                      srcSet="/images/optimized/portrait-w400.webp 400w, /images/optimized/portrait-w800.webp 800w"
+                      sizes="(min-width:1024px) 480px, (min-width:768px) 420px, 100vw"
+                    />
+                    <img
+                      src={portrait}
+                      alt="Jurij Sacharov – IT projektový manažer a byznys analytik"
+                      className="w-full rounded-3xl ring-1 ring-gray-200 shadow-xl dark:ring-gray-700"
+                      loading="eager"
+                      decoding="async"
+                    />
+                  </picture>
+                ) : (
+                  <img
+                    src={portrait}
+                    alt="Jurij Sacharov – IT projektový manažer a byznys analytik"
+                    className="w-full rounded-3xl ring-1 ring-gray-200 shadow-xl dark:ring-gray-700"
+                    loading="eager"
+                    decoding="async"
+                  />
+                )}
               </div>
             </motion.div>
           </div>

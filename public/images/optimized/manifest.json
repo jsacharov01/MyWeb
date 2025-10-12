@@ -1,0 +1,70 @@
+{
+  "src/logo.png": {
+    "width": 1024,
+    "height": 1024,
+    "variants": [
+      {
+        "width": 400,
+        "type": "image/webp",
+        "url": "/images/optimized/logo-w400.webp"
+      },
+      {
+        "width": 400,
+        "type": "image/avif",
+        "url": "/images/optimized/logo-w400.avif"
+      },
+      {
+        "width": 800,
+        "type": "image/webp",
+        "url": "/images/optimized/logo-w800.webp"
+      },
+      {
+        "width": 800,
+        "type": "image/avif",
+        "url": "/images/optimized/logo-w800.avif"
+      }
+    ]
+  },
+  "src/logo_dark.png": {
+    "width": 1024,
+    "height": 1024,
+    "variants": [
+      {
+        "width": 400,
+        "type": "image/webp",
+        "url": "/images/optimized/logo_dark-w400.webp"
+      },
+      {
+        "width": 400,
+        "type": "image/avif",
+        "url": "/images/optimized/logo_dark-w400.avif"
+      },
+      {
+        "width": 800,
+        "type": "image/webp",
+        "url": "/images/optimized/logo_dark-w800.webp"
+      },
+      {
+        "width": 800,
+        "type": "image/avif",
+        "url": "/images/optimized/logo_dark-w800.avif"
+      }
+    ]
+  },
+  "src/portrait.png": {
+    "width": 600,
+    "height": 900,
+    "variants": [
+      {
+        "width": 400,
+        "type": "image/webp",
+        "url": "/images/optimized/portrait-w400.webp"
+      },
+      {
+        "width": 400,
+        "type": "image/avif",
+        "url": "/images/optimized/portrait-w400.avif"
+      }
+    ]
+  }
+}

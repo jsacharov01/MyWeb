@@ -44,3 +44,14 @@ This is a Vite + React site. See DEPLOY-AZURE.md for deployment steps to Azure S
 ## Bezpečnost
 
 - `api/local.settings.json` necommituj (tajné hodnoty)! V Azure vlož stejné klíče do App Settings.
+
+## Optimalizace obrázků
+
+Projekt obsahuje jednoduchý skript s knihovnou Sharp, který projde `src/` a pro soubory `.png`, `.jpg`, `.jpeg` (kromě `src/favicon.png`) vygeneruje responsivní varianty ve formátech WebP a AVIF do `public/images/optimized` a vytvoří `manifest.json`.
+
+- Spuštění ručně: `npm run images:optimize`
+- Spouští se automaticky před `npm run build`
+
+Poznámky:
+- Vyžaduje nainstalovaný `sharp` (je v dependencies).
+- Pokud obrázek není dostatečně široký, generuje se jen nejbližší menší šířka.
