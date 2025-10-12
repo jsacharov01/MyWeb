@@ -5,6 +5,7 @@
     "rewrite": "/index.html",
     "exclude": [
       "/assets/*",
+      "/images/*",
       "/favicon.png",
       "/robots.txt",
       "/security.txt",
@@ -17,6 +18,7 @@
       "rewrite": "/index.html"
     },
     { "route": "/certifikaty/*", "headers": { "Cache-Control": "public, max-age=31536000, immutable" } },
+  { "route": "/images/*", "headers": { "Cache-Control": "public, max-age=31536000, immutable" } },
     { "route": "/assets/*", "headers": { "Cache-Control": "public, max-age=31536000, immutable" } },
     { "route": "/favicon.png", "headers": { "Cache-Control": "public, max-age=31536000, immutable" } },
     { "route": "/robots.txt" },
