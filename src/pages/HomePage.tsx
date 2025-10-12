@@ -106,12 +106,12 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
                   <picture>
                     <source
                       type="image/avif"
-                      srcSet="/images/optimized/portrait-w400.avif 400w, /images/optimized/portrait-w800.avif 800w"
+                      srcSet="/images/optimized/portrait-w400.avif 400w"
                       sizes="(min-width:1024px) 480px, (min-width:768px) 420px, 100vw"
                     />
                     <source
                       type="image/webp"
-                      srcSet="/images/optimized/portrait-w400.webp 400w, /images/optimized/portrait-w800.webp 800w"
+                      srcSet="/images/optimized/portrait-w400.webp 400w"
                       sizes="(min-width:1024px) 480px, (min-width:768px) 420px, 100vw"
                     />
                     <img
