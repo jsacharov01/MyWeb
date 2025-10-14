@@ -141,6 +141,9 @@ const ContactSection: React.FC = () => {
           <p className="text-[11px] text-gray-400 dark:text-gray-500">
             (Odkaz se otevře v nové kartě – žádné načítání externího skriptu.)
           </p>
+          <div className="pt-3 mt-2 border-t border-gray-100 dark:border-gray-700">
+            <p className="text-xs text-gray-500 dark:text-gray-400">IČ: 26386569</p>
+          </div>
         </motion.div>
       </div>
     </section>
