@@ -3,6 +3,7 @@ title: "Leadership – kultura, která drží tým pohromadě"
 date: "2025-10-28"
 slug: "leadership"
 excerpt: "Leadership jako aktivita, která pomáhá týmu najít cíl, porozumět jeho smyslu a překonat překážky; k čemu slouží, jak se používá a jaké má klíčové prvky."
+cover: "/images/optimized/leadership-cover-w800.avif"
 ---
 
 # 🧑‍🤝‍🧑 Leadership

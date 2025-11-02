@@ -3,6 +3,7 @@ title: "Důvěryhodnost – neviditelná páteř každého projektu"
 date: "2025-10-21"
 slug: "duveryhodnost"
 excerpt: "Proč je důvěryhodnost klíčová pro úspěch projektů, efektivní spolupráci a zdravou týmovou kulturu – a jak ji cíleně budovat u sebe i ve svém týmu."
+cover: "/images/optimized/duveryhodnost-cover-w800.avif"
 ---
 
 # 🧭 Důvěryhodnost – neviditelná páteř každého projektu

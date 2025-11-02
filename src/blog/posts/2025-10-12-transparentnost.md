@@ -3,6 +3,7 @@ title: "Transparentnost – klíč k otevřené komunikaci v týmu"
 date: "2025-10-12"
 slug: "transparentnost"
 excerpt: "Jak vytvářet přátelské a otevřené prostředí pomocí transparentní komunikace v týmu i celé organizaci."
+cover: "/images/optimized/transparentnost-cover-w800.avif"
 ---
 
 # 🪞 Transparentnost  
