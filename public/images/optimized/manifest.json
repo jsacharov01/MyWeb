@@ -1,4 +1,142 @@
 {
+  "src/images/blog/duveryhodnost/duveryhodnost-cover.png": {
+    "width": 1970,
+    "height": 1974,
+    "variants": [
+      {
+        "width": 400,
+        "type": "image/webp",
+        "url": "/images/optimized/duveryhodnost-cover-w400.webp"
+      },
+      {
+        "width": 400,
+        "type": "image/avif",
+        "url": "/images/optimized/duveryhodnost-cover-w400.avif"
+      },
+      {
+        "width": 800,
+        "type": "image/webp",
+        "url": "/images/optimized/duveryhodnost-cover-w800.webp"
+      },
+      {
+        "width": 800,
+        "type": "image/avif",
+        "url": "/images/optimized/duveryhodnost-cover-w800.avif"
+      },
+      {
+        "width": 1200,
+        "type": "image/webp",
+        "url": "/images/optimized/duveryhodnost-cover-w1200.webp"
+      },
+      {
+        "width": 1200,
+        "type": "image/avif",
+        "url": "/images/optimized/duveryhodnost-cover-w1200.avif"
+      },
+      {
+        "width": 1600,
+        "type": "image/webp",
+        "url": "/images/optimized/duveryhodnost-cover-w1600.webp"
+      },
+      {
+        "width": 1600,
+        "type": "image/avif",
+        "url": "/images/optimized/duveryhodnost-cover-w1600.avif"
+      }
+    ]
+  },
+  "src/images/blog/leadership/leadership-cover.png": {
+    "width": 1968,
+    "height": 1940,
+    "variants": [
+      {
+        "width": 400,
+        "type": "image/webp",
+        "url": "/images/optimized/leadership-cover-w400.webp"
+      },
+      {
+        "width": 400,
+        "type": "image/avif",
+        "url": "/images/optimized/leadership-cover-w400.avif"
+      },
+      {
+        "width": 800,
+        "type": "image/webp",
+        "url": "/images/optimized/leadership-cover-w800.webp"
+      },
+      {
+        "width": 800,
+        "type": "image/avif",
+        "url": "/images/optimized/leadership-cover-w800.avif"
+      },
+      {
+        "width": 1200,
+        "type": "image/webp",
+        "url": "/images/optimized/leadership-cover-w1200.webp"
+      },
+      {
+        "width": 1200,
+        "type": "image/avif",
+        "url": "/images/optimized/leadership-cover-w1200.avif"
+      },
+      {
+        "width": 1600,
+        "type": "image/webp",
+        "url": "/images/optimized/leadership-cover-w1600.webp"
+      },
+      {
+        "width": 1600,
+        "type": "image/avif",
+        "url": "/images/optimized/leadership-cover-w1600.avif"
+      }
+    ]
+  },
+  "src/images/blog/transparentnost/transparentnost-cover.png": {
+    "width": 1878,
+    "height": 1606,
+    "variants": [
+      {
+        "width": 400,
+        "type": "image/webp",
+        "url": "/images/optimized/transparentnost-cover-w400.webp"
+      },
+      {
+        "width": 400,
+        "type": "image/avif",
+        "url": "/images/optimized/transparentnost-cover-w400.avif"
+      },
+      {
+        "width": 800,
+        "type": "image/webp",
+        "url": "/images/optimized/transparentnost-cover-w800.webp"
+      },
+      {
+        "width": 800,
+        "type": "image/avif",
+        "url": "/images/optimized/transparentnost-cover-w800.avif"
+      },
+      {
+        "width": 1200,
+        "type": "image/webp",
+        "url": "/images/optimized/transparentnost-cover-w1200.webp"
+      },
+      {
+        "width": 1200,
+        "type": "image/avif",
+        "url": "/images/optimized/transparentnost-cover-w1200.avif"
+      },
+      {
+        "width": 1600,
+        "type": "image/webp",
+        "url": "/images/optimized/transparentnost-cover-w1600.webp"
+      },
+      {
+        "width": 1600,
+        "type": "image/avif",
+        "url": "/images/optimized/transparentnost-cover-w1600.avif"
+      }
+    ]
+  },
   "src/logo.png": {
     "width": 1024,
     "height": 1024,

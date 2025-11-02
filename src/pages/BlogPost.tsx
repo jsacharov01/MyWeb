@@ -15,6 +15,24 @@ const BlogPost: React.FC = () => {
       document.title = `${post.title} | Blog`;
       const meta = document.querySelector('meta[name="description"]');
       if (meta && post.excerpt) meta.setAttribute('content', post.excerpt);
+
+      // Update social preview images if cover is provided
+      if (post.cover) {
+        const ensureMeta = (selector: string, attrs: Record<string, string>) => {
+          let el = document.querySelector(selector) as HTMLMetaElement | null;
+          if (!el) {
+            el = document.createElement('meta');
+            // set name or property first based on attrs
+            if (attrs.name) el.setAttribute('name', attrs.name);
+            if (attrs.property) el.setAttribute('property', attrs.property);
+            document.head.appendChild(el);
+          }
+          Object.entries(attrs).forEach(([k, v]) => el!.setAttribute(k, v));
+        };
+
+        ensureMeta('meta[property="og:image"]', { property: 'og:image', content: post.cover });
+        ensureMeta('meta[name="twitter:image"]', { name: 'twitter:image', content: post.cover });
+      }
     }
   }, [post]);
 
@@ -36,6 +54,31 @@ const BlogPost: React.FC = () => {
       <main className="max-w-3xl mx-auto px-6 py-10 text-gray-900 dark:text-gray-100">
         <Link className="text-teal-600 dark:text-teal-400 hover:underline" to="/blog">← Zpět na blog</Link>
   {post.date && <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">{new Date(post.date).toLocaleDateString()}</p>}
+        {post.cover && (
+          <div className="mt-6">
+            {(() => {
+              const stem = post.cover.replace(/-w\d+\.(avif|webp)(\?.*)?$/i, "");
+              const widths = [400, 800, 1200, 1600];
+              const avifSrcSet = widths.map(w => `${stem}-w${w}.avif ${w}w`).join(", ");
+              const webpSrcSet = widths.map(w => `${stem}-w${w}.webp ${w}w`).join(", ");
+              const sizes = "(min-width: 1024px) 768px, 100vw";
+              const fallback = `${stem}-w800.webp`;
+              return (
+                <picture>
+                  <source type="image/avif" srcSet={avifSrcSet} sizes={sizes} />
+                  <source type="image/webp" srcSet={webpSrcSet} sizes={sizes} />
+                  <img
+                    src={fallback}
+                    alt={post.title}
+                    className="w-full h-auto rounded-lg shadow-sm ring-1 ring-black/5 dark:ring-white/10"
+                    loading="eager"
+                    decoding="async"
+                  />
+                </picture>
+              );
+            })()}
+          </div>
+        )}
         {/* Markdown content */}
         <article className="mt-6">
           <ReactMarkdown

@@ -55,3 +55,25 @@ Projekt obsahuje jednoduchý skript s knihovnou Sharp, který projde `src/` a pr
 Poznámky:
 - Vyžaduje nainstalovaný `sharp` (je v dependencies).
 - Pokud obrázek není dostatečně široký, generuje se jen nejbližší menší šířka.
+
+## Obrázky pro blog – cover
+
+Zdrojové obrázky ukládej do `src/images/`.
+
+- Pro každý článek vytvoř složku `src/images/blog/<slug>/`.
+- Titulní obrázek pojmenuj `<slug>-cover.(jpg|jpeg|png)`.
+- Příklad: `src/images/blog/transparentnost/transparentnost-cover.jpg`.
+
+Skript pro optimalizaci automaticky vytvoří varianty do `public/images/optimized/` s názvy:
+
+- `/images/optimized/<slug>-cover-w400.avif`
+- `/images/optimized/<slug>-cover-w800.avif`
+- `/images/optimized/<slug>-cover-w1200.avif`
+
+V Markdown front matter pak použij do pole `cover` odkaz na preferovanou variantu (doporučeně `-w800.avif`):
+
+```yaml
+cover: "/images/optimized/<slug>-cover-w800.avif"
+```
+
+Aktuální články již mají toto pole vyplněné.
