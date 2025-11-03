@@ -9,7 +9,9 @@ import ProjectCard from "../components/ProjectCard";
 import PricingSection from "../components/PricingSection";
 import portrait from "../portrait.png";
 import ContactSection from "../components/ContactSection";
-import { ShieldCheck, Gauge, Rocket, BarChart3, Eye, MapPin, Globe, Briefcase } from "lucide-react";
+import { ShieldCheck, Gauge, Rocket, BarChart3, Eye, MapPin, Globe, Briefcase, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { getAllPosts } from "../lib/blog";
 
 interface Service {
   title: string;
@@ -28,6 +30,15 @@ interface HomePageProps {
 
 const HomePage: FC<HomePageProps> = ({ services, projects }) => {
   // Contact form state moved into ContactSection component.
+
+  // Map key topics to corresponding blog post slugs by matching the slug ending
+  const posts = getAllPosts();
+  const topicSlugs = {
+    duveryhodnost: posts.find((p) => p.slug.endsWith("duveryhodnost"))?.slug,
+    transparentnost: posts.find((p) => p.slug.endsWith("transparentnost"))?.slug,
+    leadership: posts.find((p) => p.slug.endsWith("leadership"))?.slug,
+    analytickeMysleni: posts.find((p) => p.slug.endsWith("analyticke-mysleni"))?.slug,
+  } as const;
 
   return (
     <div className="min-h-screen bg-slate-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
@@ -183,27 +194,79 @@ const HomePage: FC<HomePageProps> = ({ services, projects }) => {
                 Jsem držitelem certifikace PRINCE2 Project Manager (Foundation + Practitioner), kterou využívám k aplikaci strukturovaných a ověřených principů v projektovém řízení.
               </motion.p>
               <motion.ul
-                className="grid grid-cols-2 md:grid-cols-4 gap-4"
+                className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <li className="flex items-center gap-2">
-                  <ShieldCheck className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden />
-                  <span>Důvěrohodnost</span>
+                <li className="flex items-center">
+                  {topicSlugs.duveryhodnost ? (
+                    <Link
+                      to={`/blog/${topicSlugs.duveryhodnost}`}
+                      className="group flex items-center gap-2 sm:gap-3 p-2 rounded-md text-lg md:text-xl text-teal-700 dark:text-teal-300 underline underline-offset-2 decoration-teal-500 dark:decoration-teal-400 hover:text-teal-900 dark:hover:text-teal-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500/50"
+                    >
+                      <ShieldCheck className="h-5 w-5 sm:h-6 sm:w-6 text-teal-600 dark:text-teal-400" aria-hidden />
+                      <span>Důvěrohodnost</span>
+                      <ChevronRight aria-hidden className="h-4 w-4 text-current transition-transform group-hover:translate-x-0.5" />
+                    </Link>
+                  ) : (
+                    <div className="flex items-center gap-2 sm:gap-3 p-2 text-lg md:text-xl">
+                      <ShieldCheck className="h-5 w-5 sm:h-6 sm:w-6 text-teal-600 dark:text-teal-400" aria-hidden />
+                      <span>Důvěrohodnost</span>
+                    </div>
+                  )}
                 </li>
-                <li className="flex items-center gap-2">
-                  <Eye className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden />
-                  <span>Transparentnost</span>
+                <li className="flex items-center">
+                  {topicSlugs.transparentnost ? (
+                    <Link
+                      to={`/blog/${topicSlugs.transparentnost}`}
+                      className="group flex items-center gap-2 sm:gap-3 p-2 rounded-md text-lg md:text-xl text-teal-700 dark:text-teal-300 underline underline-offset-2 decoration-teal-500 dark:decoration-teal-400 hover:text-teal-900 dark:hover:text-teal-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500/50"
+                    >
+                      <Eye className="h-5 w-5 sm:h-6 sm:w-6 text-teal-600 dark:text-teal-400" aria-hidden />
+                      <span>Transparentnost</span>
+                      <ChevronRight aria-hidden className="h-4 w-4 text-current transition-transform group-hover:translate-x-0.5" />
+                    </Link>
+                  ) : (
+                    <div className="flex items-center gap-2 sm:gap-3 p-2 text-lg md:text-xl">
+                      <Eye className="h-5 w-5 sm:h-6 sm:w-6 text-teal-600 dark:text-teal-400" aria-hidden />
+                      <span>Transparentnost</span>
+                    </div>
+                  )}
                 </li>
-                <li className="flex items-center gap-2">
-                  <Rocket className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden />
-                  <span>Leadership</span>
+                <li className="flex items-center">
+                  {topicSlugs.leadership ? (
+                    <Link
+                      to={`/blog/${topicSlugs.leadership}`}
+                      className="group flex items-center gap-2 sm:gap-3 p-2 rounded-md text-lg md:text-xl text-teal-700 dark:text-teal-300 underline underline-offset-2 decoration-teal-500 dark:decoration-teal-400 hover:text-teal-900 dark:hover:text-teal-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500/50"
+                    >
+                      <Rocket className="h-5 w-5 sm:h-6 sm:w-6 text-teal-600 dark:text-teal-400" aria-hidden />
+                      <span>Leadership</span>
+                      <ChevronRight aria-hidden className="h-4 w-4 text-current transition-transform group-hover:translate-x-0.5" />
+                    </Link>
+                  ) : (
+                    <div className="flex items-center gap-2 sm:gap-3 p-2 text-lg md:text-xl">
+                      <Rocket className="h-5 w-5 sm:h-6 sm:w-6 text-teal-600 dark:text-teal-400" aria-hidden />
+                      <span>Leadership</span>
+                    </div>
+                  )}
                 </li>
-                <li className="flex items-center gap-2">
-                  <BarChart3 className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden />
-                  <span>Analytické myšlení</span>
+                <li className="flex items-center">
+                  {topicSlugs.analytickeMysleni ? (
+                    <Link
+                      to={`/blog/${topicSlugs.analytickeMysleni}`}
+                      className="group flex items-center gap-2 sm:gap-3 p-2 rounded-md text-lg md:text-xl text-teal-700 dark:text-teal-300 underline underline-offset-2 decoration-teal-500 dark:decoration-teal-400 hover:text-teal-900 dark:hover:text-teal-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500/50"
+                    >
+                      <BarChart3 className="h-5 w-5 sm:h-6 sm:w-6 text-teal-600 dark:text-teal-400" aria-hidden />
+                      <span>Analytické myšlení</span>
+                      <ChevronRight aria-hidden className="h-4 w-4 text-current transition-transform group-hover:translate-x-0.5" />
+                    </Link>
+                  ) : (
+                    <div className="flex items-center gap-2 sm:gap-3 p-2 text-lg md:text-xl">
+                      <BarChart3 className="h-5 w-5 sm:h-6 sm:w-6 text-teal-600 dark:text-teal-400" aria-hidden />
+                      <span>Analytické myšlení</span>
+                    </div>
+                  )}
                 </li>
               </motion.ul>
             </div>
