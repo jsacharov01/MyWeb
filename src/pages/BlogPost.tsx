@@ -100,7 +100,35 @@ const BlogPost: React.FC = () => {
                 <code className="block p-4 rounded bg-gray-900 text-gray-100 overflow-x-auto my-4 text-sm" {...props} />
               ),
               pre: ({node, ...props}) => <pre className="block p-4 rounded bg-gray-900 text-gray-100 overflow-x-auto my-4" {...props} />,
-              img: ({node, ...props}) => <img className="rounded-lg my-4 max-w-full" {...props as any} />,
+              img: ({node, ...props}) => {
+                const p = props as any;
+                const src: string | undefined = p?.src;
+                const alt: string = p?.alt || "";
+                // If the image follows the -w{width}.{ext} pattern, render a responsive <picture>
+                if (typeof src === "string" && /-w\d+\.(avif|webp|jpe?g|png)(\?.*)?$/i.test(src)) {
+                  const stem = src.replace(/-w\d+\.(avif|webp|jpe?g|png)(\?.*)?$/i, "");
+                  const widths = [400, 800, 1200];
+                  const avifSrcSet = widths.map(w => `${stem}-w${w}.avif ${w}w`).join(", ");
+                  const webpSrcSet = widths.map(w => `${stem}-w${w}.webp ${w}w`).join(", ");
+                  const sizes = p?.sizes || "(min-width: 1024px) 768px, 100vw";
+                  const fallback = `${stem}-w800.webp`;
+                  return (
+                    <picture>
+                      <source type="image/avif" srcSet={avifSrcSet} sizes={sizes} />
+                      <source type="image/webp" srcSet={webpSrcSet} sizes={sizes} />
+                      <img
+                        src={fallback}
+                        alt={alt}
+                        className="rounded-lg my-4 max-w-full"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </picture>
+                  );
+                }
+                // Fallback for other images
+                return <img className="rounded-lg my-4 max-w-full" {...(props as any)} />;
+              },
             }}
           >
             {post.content}
