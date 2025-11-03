@@ -1,4 +1,66 @@
 {
+  "src/images/blog/analyticke-mysleni/PBS Diagram.png": {
+    "width": 1536,
+    "height": 1024,
+    "variants": [
+      {
+        "width": 400,
+        "type": "image/webp",
+        "url": "/images/optimized/pbs-diagram-w400.webp"
+      },
+      {
+        "width": 400,
+        "type": "image/avif",
+        "url": "/images/optimized/pbs-diagram-w400.avif"
+      },
+      {
+        "width": 800,
+        "type": "image/webp",
+        "url": "/images/optimized/pbs-diagram-w800.webp"
+      },
+      {
+        "width": 800,
+        "type": "image/avif",
+        "url": "/images/optimized/pbs-diagram-w800.avif"
+      },
+      {
+        "width": 1200,
+        "type": "image/webp",
+        "url": "/images/optimized/pbs-diagram-w1200.webp"
+      },
+      {
+        "width": 1200,
+        "type": "image/avif",
+        "url": "/images/optimized/pbs-diagram-w1200.avif"
+      }
+    ]
+  },
+  "src/images/blog/analyticke-mysleni/analyticke-mysleni-cover.png": {
+    "width": 1009,
+    "height": 1021,
+    "variants": [
+      {
+        "width": 400,
+        "type": "image/webp",
+        "url": "/images/optimized/analyticke-mysleni-cover-w400.webp"
+      },
+      {
+        "width": 400,
+        "type": "image/avif",
+        "url": "/images/optimized/analyticke-mysleni-cover-w400.avif"
+      },
+      {
+        "width": 800,
+        "type": "image/webp",
+        "url": "/images/optimized/analyticke-mysleni-cover-w800.webp"
+      },
+      {
+        "width": 800,
+        "type": "image/avif",
+        "url": "/images/optimized/analyticke-mysleni-cover-w800.avif"
+      }
+    ]
+  },
   "src/images/blog/duveryhodnost/duveryhodnost-cover.png": {
     "width": 1970,
     "height": 1974,
