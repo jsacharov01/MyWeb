@@ -61,6 +61,52 @@
       }
     ]
   },
+  "src/images/blog/delegovani/delegovani-cover.png": {
+    "width": 1692,
+    "height": 1634,
+    "variants": [
+      {
+        "width": 400,
+        "type": "image/webp",
+        "url": "/images/optimized/delegovani-cover-w400.webp"
+      },
+      {
+        "width": 400,
+        "type": "image/avif",
+        "url": "/images/optimized/delegovani-cover-w400.avif"
+      },
+      {
+        "width": 800,
+        "type": "image/webp",
+        "url": "/images/optimized/delegovani-cover-w800.webp"
+      },
+      {
+        "width": 800,
+        "type": "image/avif",
+        "url": "/images/optimized/delegovani-cover-w800.avif"
+      },
+      {
+        "width": 1200,
+        "type": "image/webp",
+        "url": "/images/optimized/delegovani-cover-w1200.webp"
+      },
+      {
+        "width": 1200,
+        "type": "image/avif",
+        "url": "/images/optimized/delegovani-cover-w1200.avif"
+      },
+      {
+        "width": 1600,
+        "type": "image/webp",
+        "url": "/images/optimized/delegovani-cover-w1600.webp"
+      },
+      {
+        "width": 1600,
+        "type": "image/avif",
+        "url": "/images/optimized/delegovani-cover-w1600.avif"
+      }
+    ]
+  },
   "src/images/blog/duveryhodnost/duveryhodnost-cover.png": {
     "width": 1970,
     "height": 1974,
